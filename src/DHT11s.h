@@ -23,6 +23,7 @@ byte* decode_bytes(byte* bytes, byte* bits, unsigned int len){
         bytes[i] |= (1 << (7-b));
     }
   }
+  return bytes;
 }
 
 void init_bus(int pin){
