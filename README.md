@@ -3,17 +3,25 @@ A DHT11 driver for Arduino.
 
 # Example
 ```
-#include <DHT11.h>
+#include <Arduino.h>
+#include "DHT11.h"
 
 DHT11 dht(D1);
 
 void setup() 
 {
+    Serial.begin(230400);
+    Serial.println();
+    dht.setup();
 }
 
 void loop()
 {
-  float t = dht.temperature();
-  float h = dht.humidity();
+    int value;
+    Serial.prinln(dht.temperature(value));
+    Serial.println(value);
+    Serial.prinln(dht.humidity(value));
+    Serial.println(value);
 }
+
 ```
