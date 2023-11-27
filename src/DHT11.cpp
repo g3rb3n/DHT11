@@ -1,7 +1,7 @@
-#include <DHT11.h>
-#include <DHT11s.h>
 
 #include <Arduino.h>
+#include <DHT11.h>
+#include <DHT11s.h>
 
 DHT11::DHT11(uint8_t pin)
 :
