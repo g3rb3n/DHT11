@@ -4,7 +4,7 @@
 class DHT11 {
 
   public:
-    DHT11(const char pin);
+    DHT11(uint8_t pin);
 
     void setup();
     
