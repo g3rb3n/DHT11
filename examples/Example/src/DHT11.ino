@@ -1,4 +1,5 @@
-#include <DHT11.h>
+#include <Arduino.h>
+#include "DHT11.h"
 
 DHT11 dht(D1);
 
