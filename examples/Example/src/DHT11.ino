@@ -4,12 +4,15 @@ DHT11 dht(D1);
 
 void setup() 
 {
-  Serial.begin(230400);
-  Serial.println();
+    Serial.begin(230400);
+    Serial.println();
 }
 
 void loop()
 {
-  Serial.prinln(dht.temperature());
-  Serial.prinln(dht.humidity());
+    int value;
+    Serial.prinln(dht.temperature(value));
+    Serial.println(value);
+    Serial.prinln(dht.humidity(value));
+    Serial.println(value);
 }

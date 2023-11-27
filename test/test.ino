@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <unity.h>
 
-#include "DS18B20.h"
+#include "DHT11.h"
 
 #ifdef UNIT_TEST
 
@@ -13,14 +13,16 @@ DHT11 dht(PIN);
 
 void readsProperTemperature() 
 {
-  float t = ds.temperature();
-  TEST_ASSERT_FLOAT_WITHIN(20, 21, t);
+  int v = 0;
+  dht.temperature(v);
+  TEST_ASSERT_INT_WITHIN(15, 25, v);
 }
 
 void readsProperHumidity() 
 {
-  float t = ds.humidity();
-  TEST_ASSERT_FLOAT_WITHIN(50, 50, t);
+  int v = 0;
+  dht.humidity(v);
+  TEST_ASSERT_INT_WITHIN(20, 80, v);
 }
 
 void setup() 
