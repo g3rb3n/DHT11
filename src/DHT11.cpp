@@ -19,7 +19,7 @@ void DHT11::setup()
     pinMode (pin, INPUT);
 }
 
-int DHT11::temperature(){
+bool DHT11::temperature(int& value){
   unsigned long buff[100];
   byte bits[50];
   byte bytes[5];
@@ -29,12 +29,11 @@ int DHT11::temperature(){
   r = decode_pulses(bits, buff, 50, r);
   decode_bytes(bytes, bits, 5);
   ok = check(bytes, 4);
-  if (!ok)
-    return 0;
-  return bytes[2];
+  value = bytes[2];
+  return ok;
 }
 
-int DHT11::humidity(){
+bool DHT11::humidity(int& value){
   unsigned long buff[100];
   byte bits[50];
   byte bytes[5];
@@ -44,7 +43,5 @@ int DHT11::humidity(){
   r = decode_pulses(bits, buff, 50, r);
   decode_bytes(bytes, bits, 5);
   ok = check(bytes, 4);
-  if (!ok)
-    return 0;
-  return bytes[0];
+  value = bytes[0];
 }

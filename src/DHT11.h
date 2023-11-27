@@ -3,16 +3,18 @@
 
 #include <Arduino.h>
 
-class DHT11 {
+class DHT11
+{
+
+  private:
+    int pin;
 
   public:
     DHT11(uint8_t pin);
 
     void setup();
     
-    int temperature();
-    int humidity();
-  private:
-    int pin;
+    bool temperature(int& value);
+    bool humidity(int& value);
 };
 #endif
