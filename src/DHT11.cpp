@@ -44,4 +44,5 @@ bool DHT11::humidity(int& value){
   decode_bytes(bytes, bits, 5);
   ok = check(bytes, 4);
   value = bytes[0];
+  return ok;
 }
