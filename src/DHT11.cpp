@@ -9,7 +9,12 @@ DHT11::DHT11(const char pin){
 
 void setup()
 {
-    init_bus(pin);
+    pinMode (pin, OUTPUT);
+    digitalWrite (pin, LOW); // bus down, send start signal
+    delay (30); // delay greater than 18ms, so DHT11 start signal can be detected
+    digitalWrite (pin, HIGH);
+    delayMicroseconds (40); // Wait for DHT11 response
+    pinMode (pin, INPUT);
 }
 
 int DHT11::temperature(){
