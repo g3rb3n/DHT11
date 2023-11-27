@@ -7,6 +7,11 @@ DHT11::DHT11(const char pin){
   this->pin = pin;
 }
 
+void setup()
+{
+    init_bus(pin);
+}
+
 int DHT11::temperature(){
   unsigned long buff[100];
   byte bits[50];
