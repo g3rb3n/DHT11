@@ -3,11 +3,13 @@
 
 #include <Arduino.h>
 
-DHT11::DHT11(const char pin){
-  this->pin = pin;
+DHT11::DHT11(uint8_t pin)
+:
+    pin(pin)
+{
 }
 
-void setup()
+void DHT11::setup()
 {
     pinMode (pin, OUTPUT);
     digitalWrite (pin, LOW); // bus down, send start signal
